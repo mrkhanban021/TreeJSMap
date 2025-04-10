@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:Poppins;
+}
+
+
+body{
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+#app{
+  border: 1px solid black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.web3{
+  width: 80%;
+  height: 450px;
+  border-radius: 10px;
+}
+
+
+
+.control{
+  border: 1px solid black;
+  width: 80%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  height: 150px;
+}
+
+.select{
+  width: 200px;
+}
+.select select{
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  outline: none;
+}
+
+
+.range{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 5px;
+  max-width: 250px;
+  width: 100%;
+  align-items: center;
+}
+
+#speed{
+  cursor: pointer;
+}
+
+#speed:hover{
+  border-color: lightblue;
+}
+
+.value{
+  border: 1px solid gray;
+  padding: 3px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  cursor: pointer;
+}
+.value span{
+  font-size: 20px;
+}
+.value:hover{
+  border-color: #6d9fe9;
+}
+
+
+.add_motor{
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  max-width: 250px;
+  width: 100%;
+  padding: 5px;
+  align-items: start;
+    
+}
+ .add_motor input{
+  width: 100%;
+  height: 39px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  outline: none;
+  padding: 0 10px;
+ }
+
+ .add_motor button{
+  padding: 9px 15px;
+  border: none;
+  border-radius:5px;
+  outline: none;
+  background: #6d9fe9;
+  cursor: pointer;
+  color: aliceblue;
+  font-size: 13px;
+
+ }
+ .add_motor button:hover{
+  background-color: #5591ec;
+ }
+ .add_motor button:active{
+  background-color: #6d9fe9;
+ }
+
+ .btn{
+  display: flex;
+  column-gap: 20px;
+  flex-direction: column;
+ }
+
+ .btn button{
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-size: 15px;
+ }
+
+ .btn button:hover{
+  opacity: 0.9;
+ }
+
+ .btn_left{
+  background: green;
+ }
+
+ .btn_S{
+  background-color: #2477f3;
+ }
+
+.btn_right{
+  background-color: red;
+}
+.btn2{
+  background-color: red;
+}
+
+
+

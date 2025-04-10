@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css">
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas class="web3"></canvas>
+      <div class="control">
+
+        <div class="select">
+          <select name="engine" id="engine">
+            <option hidden>engines</option>
+            <option value="1">engines 1</option>
+            <option value="2">engines 2</option>
+            <option value="3">engines 3</option>
+          </select>
+        </div>
+
+        <div class="range">
+          <input type="range" id="speed" min="1" max="60" value="1">
+          <p class="value">Speed <span id="show_speed"></span></p>
+        </div>
+        
+        <div class="add_motor">
+          <input type="number" id="add_motor" placeholder="Add the number of engines" min="1" max="10">
+          <button class="btn_engines">Add engines</button>
+        </div>
+
+        <div class="btn">
+          <div>
+            <p>Controler Direction</p>
+          </div>
+          <div id="butn">
+            <button class="btn_left">left</button>
+            <button class="btn_S">Start</button>
+            <button class="btn_right">Right</button>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
