@@ -106,13 +106,18 @@ body{
   outline: none;
   padding: 0 10px;
  }
+ .gp span{
+  font-size: 13px;
+  font-weight: 500;
+  color: red;
+ }
 
  .add_motor button{
   padding: 9px 15px;
   border: none;
   border-radius:5px;
   outline: none;
-  background: #6d9fe9;
+  background: red;
   cursor: pointer;
   color: aliceblue;
   font-size: 13px;
@@ -157,6 +162,16 @@ body{
 }
 .btn2{
   background-color: red;
+}
+
+.add_motor .check{
+  width: 15px;
+}
+
+.add_motor div{
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
 }
 
 

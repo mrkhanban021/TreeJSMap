@@ -16,7 +16,10 @@ const select = document.querySelector("#engine"); // dropdown
 const btn_left = document.querySelector(".btn_left");
 const btn_S = document.querySelector(".btn_S");
 const btn_right = document.querySelector(".btn_right");
-const butn = document.querySelector("#butn");
+const checked = document.querySelector("#checked");
+const label_cheack = document.querySelector("#label_cheack");
+const notif = document.querySelector("#notif")
+
 
 let engin = false; // run and stop motor
 
@@ -27,27 +30,6 @@ let engin = false; // run and stop motor
 select.addEventListener("change",()=>{
   console.log(select.value);
 })
-
-
-
-
-
-add_motor.addEventListener("keydown",(e)=>{
-  if(e.key == "Enter"){
-    console.log(add_motor.value);
-  }
-})
-
-
-btn_engines.addEventListener("click", ()=>{
-  let value = add_motor.value;
-  console.log(value);
-})
-
-
-
-
-
 
 
 
@@ -69,15 +51,26 @@ gltf.setDRACOLoader(dracoLoader);
 
 gltf.load("/Canvaer.glb", (canvaer)=>{
   scene.add(canvaer.scene)
-  let rotations = -1.5
+  
+  let engins = canvaer.scene.children[1];
 
   animate = new THREE.AnimationMixer(canvaer.scene);
   let animateion = animate.clipAction(canvaer.animations[0]);
-  console.log(animateion);
-  
+ 
 
-  let mesh = canvaer.scene
-  mesh.rotation.y = rotations;
+  function createEngin(cunt){
+    for(let i = 0; i < cunt; i++){
+      let engin_clon = engins.clone();
+
+      engin_clon.position.copy(engins.position); // کپی موقعیت
+      engin_clon.rotation.copy(engins.rotation); // کپی موقعیت
+      engin_clon.scale.copy(engins.scale); // کپی موقعیت
+
+      scene.add(engin_clon);
+    }
+  }
+
+
 
   btn_S.addEventListener("click",()=>{
     
@@ -86,9 +79,6 @@ gltf.load("/Canvaer.glb", (canvaer)=>{
       btn_S.innerHTML = "Stop";
       animateion.play()
       animateion.paused = false
-      
-      
-
     }else{
       engin = false;
       btn_S.innerHTML = "Start"
@@ -98,12 +88,13 @@ gltf.load("/Canvaer.glb", (canvaer)=>{
   
   });
 
+// dir left
   btn_left.addEventListener("click",()=>{
     console.log("dir = left");
     animateion.timeScale = -1
   });
   
-  
+  // dir right
   btn_right.addEventListener("click",()=>{
     console.log("dir = right");
     animateion.timeScale = 1
@@ -111,7 +102,76 @@ gltf.load("/Canvaer.glb", (canvaer)=>{
   
 
 
+
+
+  let isCeackAddMotor = false;
+// add motor in map
+  add_motor.addEventListener("keydown",(e)=>{
+    if(e.key == "Enter"){
+
+      isCeackAddMotor = true;
+      add_motor.disabled = true;
+      btn_engines.style.background = "red";
+      checked.checked = true;
+      label_cheack.textContent = "Enabled add engin"
+      let value = parseInt(add_motor.value);
+      createEngin(value)
+    }
+  });
+  
+  // add motor in map
+  btn_engines.addEventListener("click", ()=>{
+    let value = add_motor.value;
+    if(!add_motor.value){
+       notif.textContent = "Enter Yor value";
+     setInterval(()=>{
+        notif.textContent = "";
+     },2000);
+
+    }else{
+
+      if(isCeackAddMotor == true){
+        btn_engines.disabled = true;
+
+      }else{
+        createEngin(value)
+        checked.checked = true;
+        label_cheack.textContent = "Enabled add engin";
+        add_motor.disabled = true;
+        btn_engines.disabled = true;
+        btn_engines.style.background = "red";
+      };
+    };
+
+      
+  });
+
+// dis and enabled add motor
+  checked.addEventListener("change", (e)=>{
+   
+    if(e.target.checked == true){
+      isCeackAddMotor = true;
+      add_motor.disabled = true;
+      btn_engines.disabled = true;
+      label_cheack.textContent = "Enabled add engin";
+      btn_engines.style.background = "red";
+
+    }else{
+      isCeackAddMotor = false;
+      add_motor.disabled = false;
+      btn_engines.disabled = false;
+      label_cheack.textContent = "Disabled add engin";
+      btn_engines.style.background = "#005eec";
+
+    };
+  })
+  
+
+
+
 });
+
+
 
 
 //light 
@@ -141,7 +201,7 @@ let size = {
 
 
 const camera = new THREE.PerspectiveCamera(75,size.width/size.height);
-camera.position.set(0,5,8);
+camera.position.set(50,35);
 
 
 

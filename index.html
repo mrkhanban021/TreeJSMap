@@ -27,8 +27,15 @@
         </div>
         
         <div class="add_motor">
-          <input type="number" id="add_motor" placeholder="Add the number of engines" min="1" max="10">
-          <button class="btn_engines">Add engines</button>
+          <input type="number" id="add_motor" placeholder="Add the number of engines" min="1" max="10" disabled>
+          <div class="gp">
+            <button class="btn_engines" disabled>Add engines</button>
+            <span id="notif"></span>
+          </div>
+          <div>
+            <input type="checkbox" id="checked" class="check" checked>
+            <label for="checked" id="label_cheack">Enabled add engin</label>
+          </div>
         </div>
 
         <div class="btn">
